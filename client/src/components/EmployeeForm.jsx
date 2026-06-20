@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { AppContent } from '../context/AppContext';
+import { AppContent } from '../context/appContext';
 
 const EmployeeForm = ({ editEmployee, setEditEmployee, closeForm }) => {
   const { backendUrl, getEmployees } = useContext(AppContent);

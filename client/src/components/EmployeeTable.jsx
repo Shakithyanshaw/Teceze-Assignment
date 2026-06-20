@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { AppContent } from '../context/AppContext';
+import { AppContent } from '../context/appContext';
 
 const EmployeeTable = ({ setEditEmployee }) => {
   const { employees, backendUrl, getEmployees } = useContext(AppContent);
