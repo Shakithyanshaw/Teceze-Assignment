@@ -3,7 +3,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { AppContent } from '../context/AppContext';
 
-const EmployeeForm = ({ editEmployee, setEditEmployee }) => {
+const EmployeeForm = ({ editEmployee, setEditEmployee, closeForm }) => {
   const { backendUrl, getEmployees } = useContext(AppContent);
 
   const [employeeName, setEmployeeName] = useState('');
@@ -57,6 +57,7 @@ const EmployeeForm = ({ editEmployee, setEditEmployee }) => {
         setDesignation('');
         setSalary('');
         setEditEmployee(null);
+        closeForm();
       }
     } catch (error) {
       toast.error(error.message);
@@ -98,6 +99,16 @@ const EmployeeForm = ({ editEmployee, setEditEmployee }) => {
 
       <button className="bg-blue-600 text-white px-4 py-2 rounded">
         {editEmployee ? 'Update' : 'Add Employee'}
+      </button>
+      <button
+        type="button"
+        onClick={() => {
+          setEditEmployee(null);
+          closeForm();
+        }}
+        className="ml-3 bg-gray-500 text-white px-4 py-2 rounded"
+      >
+        Cancel
       </button>
     </form>
   );
